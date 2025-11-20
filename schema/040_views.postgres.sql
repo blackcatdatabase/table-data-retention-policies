@@ -1,4 +1,4 @@
--- Auto-generated from schema-views-postgres.psd1 (map@9d3471b)
+-- Auto-generated from schema-views-postgres.psd1 (map@62c9c93)
 -- engine: postgres
 -- table:  data_retention_policies_due
 -- Policies and when they become due (relative)
@@ -16,7 +16,7 @@ SELECT
 FROM data_retention_policies
 WHERE active;
 
--- Auto-generated from schema-views-postgres.psd1 (map@9d3471b)
+-- Auto-generated from schema-views-postgres.psd1 (map@62c9c93)
 -- engine: postgres
 -- table:  data_retention_policies
 -- Contract view for [data_retention_policies]
