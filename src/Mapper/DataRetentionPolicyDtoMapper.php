@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class DataRetentionPolicyDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'entity_table' => 'entityTable', 'field_name' => 'fieldName', 'keep_for' => 'keepFor', 'created_at' => 'createdAt' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'entity_table' => 'entityTable', 'field_name' => 'fieldName', 'action' => 'action', 'keep_for' => 'keepFor', 'active' => 'active', 'notes' => 'notes', 'created_at' => 'createdAt' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [ 'active' ];
