@@ -38,7 +38,7 @@ final class Criteria extends BaseCriteria
     /** Columns used for full-text LIKE/ILIKE searches. */
     protected function searchable(): array
     {
-        return [ 'entity_table', 'field_name', 'keep_for', 'notes' ];
+        return [ 'entity_table', 'field_name', 'action', 'keep_for', 'notes' ];
     }
 
 /** Columns allowed in ORDER BY (falls back to filterable() when empty). */
