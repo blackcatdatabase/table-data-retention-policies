@@ -1,6 +1,6 @@
 -- Auto-generated from joins-postgres.yaml (map@85230ed)
 -- engine: postgres
--- view:   data_retention_policies_due
+-- view:   retention_due
 
 -- Policies and when they become due (relative)
 CREATE OR REPLACE VIEW vw_retention_due AS
