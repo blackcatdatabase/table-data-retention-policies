@@ -1,6 +1,7 @@
--- Auto-generated from schema-map-mysql.psd1 (map@62c9c93)
+-- Auto-generated from schema-map-mysql.yaml (map@sha1:5E62933580349BE7C623D119AC9D1301A62F03EF)
 -- engine: mysql
 -- table:  data_retention_policies
+
 CREATE TABLE IF NOT EXISTS data_retention_policies (
   id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   entity_table VARCHAR(64) NOT NULL,
@@ -10,7 +11,7 @@ CREATE TABLE IF NOT EXISTS data_retention_policies (
   active BOOLEAN NOT NULL DEFAULT TRUE,
   notes TEXT NULL,
   created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-  UNIQUE KEY ux_drp (entity_table, field_name, action, keep_for),
+  UNIQUE KEY uq_drp_entity_scope (entity_table, field_name, action, keep_for),
   INDEX idx_drp_entity (entity_table, field_name),
   INDEX idx_drp_active (active)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
