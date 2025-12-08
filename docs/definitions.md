@@ -5,11 +5,11 @@ Declarative data-retention rules describing purge/anonymize actions.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| action | TEXT | NO |  | Retention action. (enum: delete, anonymize, hash, truncate) |
+| action | ENUM('delete','anonymize','hash','truncate') | NO |  | Retention action. (enum: delete, anonymize, hash, truncate) |
 | active | BOOLEAN | NO | TRUE | Whether the policy is currently enforced. |
-| created_at | TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | entity_table | VARCHAR(64) | NO |  | Table affected by the policy. |
-| field_name |  | YES |  | Optional column restricted by the policy. |
+| field_name | VARCHAR(64) | YES |  | Optional column restricted by the policy. |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | keep_for | VARCHAR(64) | NO |  | Retention window (interval / textual duration). |
 | notes | TEXT | YES |  | Operational notes or audit context. |
@@ -49,7 +49,7 @@ Indexes:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_data_retention_policies | mysql | algorithm=MERGE, security=INVOKER | [packages\data-retention-policies\schema\040_views.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/data-retention-policies/schema/040_views.mysql.sql) |
-| vw_retention_due | mysql | algorithm=TEMPTABLE, security=INVOKER | [packages\data-retention-policies\schema\040_views_joins.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/data-retention-policies/schema/040_views_joins.mysql.sql) |
-| vw_data_retention_policies | postgres |  | [packages\data-retention-policies\schema\040_views.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/data-retention-policies/schema/040_views.postgres.sql) |
-| vw_retention_due | postgres |  | [packages\data-retention-policies\schema\040_views_joins.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/data-retention-policies/schema/040_views_joins.postgres.sql) |
+| vw_data_retention_policies | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
+| vw_retention_due | mysql | algorithm=TEMPTABLE, security=INVOKER | [schema\040_views_joins.mysql.sql](schema\040_views_joins.mysql.sql) |
+| vw_data_retention_policies | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
+| vw_retention_due | postgres |  | [schema\040_views_joins.postgres.sql](schema\040_views_joins.postgres.sql) |
