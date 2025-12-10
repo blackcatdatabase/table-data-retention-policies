@@ -5,14 +5,14 @@ Declarative data-retention rules describing purge/anonymize actions.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| field_name | VARCHAR(64) | YES |  | Optional column restricted by the policy. |
-| id | BIGINT | NO |  | Surrogate primary key. |
+| action | mysql: ENUM('delete','anonymize','hash','truncate') / postgres: TEXT | NO |  | Retention action. (enum: delete, anonymize, hash, truncate) |
+| active | BOOLEAN | NO | TRUE | Whether the policy is currently enforced. |
 | created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | entity_table | VARCHAR(64) | NO |  | Table affected by the policy. |
-| active | BOOLEAN | NO | TRUE | Whether the policy is currently enforced. |
-| notes | TEXT | YES |  | Operational notes or audit context. |
+| field_name | VARCHAR(64) | YES |  | Optional column restricted by the policy. |
+| id | BIGINT | NO |  | Surrogate primary key. |
 | keep_for | VARCHAR(64) | NO |  | Retention window (interval / textual duration). |
-| action | mysql: ENUM('delete','anonymize','hash','truncate') / postgres: TEXT | NO |  | Retention action. (enum: delete, anonymize, hash, truncate) |
+| notes | TEXT | YES |  | Operational notes or audit context. |
 
 ## Engine Details
 
