@@ -5,9 +5,9 @@ Declarative data-retention rules describing purge/anonymize actions.
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| action | ENUM('delete','anonymize','hash','truncate') | NO |  | Retention action. (enum: delete, anonymize, hash, truncate) |
+| action | mysql: ENUM('delete','anonymize','hash','truncate') / postgres: TEXT | NO |  | Retention action. (enum: delete, anonymize, hash, truncate) |
 | active | BOOLEAN | NO | TRUE | Whether the policy is currently enforced. |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Creation timestamp (UTC). |
 | entity_table | VARCHAR(64) | NO |  | Table affected by the policy. |
 | field_name | VARCHAR(64) | YES |  | Optional column restricted by the policy. |
 | id | BIGINT | NO |  | Surrogate primary key. |
