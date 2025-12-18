@@ -1,0 +1,32 @@
+{
+  "tables": {
+    "data_retention_policies": {
+      "columns": {
+        "action": {
+          "strategy": "passthrough"
+        },
+        "active": {
+          "strategy": "passthrough"
+        },
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "entity_table": {
+          "strategy": "passthrough"
+        },
+        "field_name": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "keep_for": {
+          "strategy": "passthrough"
+        },
+        "notes": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}
